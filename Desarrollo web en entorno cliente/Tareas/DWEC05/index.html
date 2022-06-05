@@ -1,0 +1,92 @@
+
+
+<!DOCTYPE html>
+<htm xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>DWEC05 - Solución Tarea</title>
+        <script type="text/javascript" src="scriptSolucion.js"></script>
+        <style type="text/css">
+            label{
+                width: 150px;
+                float:left;
+                margin-bottom:5px;     
+            }
+            input,select {
+                width:150px;
+                float:left;
+                margin-bottom:5px;
+            }
+            fieldset{
+                background:#66CCCC;
+                width:350px;
+                border: thick solid #306;
+            }
+            legend{
+                border-top-width: medium;
+                border-right-width: medium;
+                border-bottom-width: medium;
+                border-left-width: medium;
+                border-top-style: solid;
+                border-right-style: solid;
+                border-bottom-style: solid;
+                border-left-style: solid;
+                background-color: #FFF;     
+            }
+            #mensajes{
+                float: left;
+                background:#33FF33;
+                width: 325px;
+            }
+            #errores{
+                float: left;
+                background:#FF6633;
+                width: 325px;
+            }
+            #intentos{
+                float: left;
+                background:#CCFF33;
+                width: 325px;
+            }
+            .error{
+                border: solid 2px #FF0000;
+            }
+        </style>
+    </head>
+    <body>
+        <fieldset>
+            <legend>DWEC05 - Solución Tarea</legend>
+            <form name="formulario" id="formulario" action="http://www.google.es" method="get">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" />
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" name="apellidos" id="apellidos" />
+                <label for="edad">Edad:</label>
+                <input name="edad" type="text" id="edad" maxlength="3" />
+                <label for="nif">NIF:</label>
+                <input name="nif" type="text" id="nif" />
+                <label for="email">E-mail:</label>
+                <input name="email" type="text" id="email" />
+                <label for="provincia">Provincia:</label>
+                <select name="provincia" id="provincia">
+                    <option value="0" selected="selected">Seleccione Provincia</option>
+                    <option value="C">A Coruña</option>
+                    <option value="LU">Lugo</option>
+                    <option value="OU">Ourense</option>
+                    <option value="OU">Pontevedra</option>
+                </select>
+                <label for="fecha">Fecha Nacimiento:</label>
+                <input name="fecha" type="text" id="fecha" />
+                <label for="telefono">Teléfono:</label>
+                <input name="telefono" type="text" id="telefono" maxlength="9"/>
+                <label for="hora">Hora de visita:</label>
+                <input name="hora" type="text" id="hora" />
+                <input type="reset" name="limpiar" id="button" value="Limpiar" />
+                <input type="submit" name="enviar" id="enviar" value="Enviar" />
+            </form> 
+            <div id="errores"></div>
+            <div id="intentos"></div>
+        </fieldset>
+    </body>
+</html>
+
