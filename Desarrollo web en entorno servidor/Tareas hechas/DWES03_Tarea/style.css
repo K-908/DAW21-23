@@ -1,0 +1,158 @@
+body{
+    background-color:#0c5c4b;
+    color: white;
+    font-family:Comic Sans MS, Comic Sans, cursive;
+}
+table, th, td{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+textarea{
+    min-width:90%;
+}
+
+th{
+    background-color:#282829;
+    padding:15px;
+}
+
+table{
+    width:60%;
+    font-family:Comic Sans MS, Comic Sans, cursive;
+    font-size:20px;
+}
+
+label{
+    display:block;
+}
+
+
+tr:nth-child(even){
+    background-color:#5c5c5a;
+}
+
+tr:nth-child(odd){
+    background-color:#8f8f8f;
+}
+
+
+
+th{
+    font-size:25px;
+    color:#3d40f8;
+    font-family:'Courier New', Courier, monospace;
+}
+
+  .crearContainer{
+    text-align:center;
+}
+
+
+h1{
+    text-align:center;
+}
+  
+  .titulo{
+      text-align:center;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      color: white;
+      font-size: 50px;
+      text-shadow: -1px 1px 0 #000,
+                    1px 1px 0 #000,
+                    1px -1px 0 #000,
+                   -1px -1px 0 #000;
+  }
+
+  .row{
+      text-align:center;
+      margin-top:25px;
+  }
+
+
+  .boton {
+    appearance: none;
+    width:min-content;
+    height:min-content;
+    background-color: #2ea44f;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    margin:5px;
+  }
+  
+  .boton:focus:not(:focus-visible):not(.focus-visible) {
+    box-shadow: none;
+    outline: none;
+  }
+  
+  .boton:hover {
+    background-color: #2c974b;
+  }
+  
+  .boton:focus {
+    box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+    outline: none;
+  }
+  
+  .boton:disabled {
+    background-color: #94d3a2;
+    border-color: rgba(27, 31, 35, .1);
+    color: rgba(255, 255, 255, .8);
+    cursor: default;
+  }
+  
+  .boton:active {
+    background-color: #298e46;
+    box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+  }
+
+  .botonCrear{
+    width:240px;
+    height:50px;
+    font-size:25px;
+    background-color: #e78930;
+  }
+  .botonCrear:hover{
+    background-color: #bb6514;
+  }
+
+  .botonActualizar{
+
+    background-color:#ffee00;
+    color:black;
+  }
+  .botonActualizar:hover{
+    background-color:#a59b16;
+  }
+
+  .botonBorrar{
+    background-color: #ff0000;
+  }
+  .botonBorrar:hover{
+    background-color: #720000;
+  }
+
+  .margen{
+    margin-top:80px;
+  }

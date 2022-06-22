@@ -1,0 +1,73 @@
+input, label{
+    display:block;
+}
+
+body{
+    background-color:gray;
+}
+
+
+.formulario, .formulario2{
+    margin: auto;
+    margin-top:20px;
+    width: 50%;
+    padding: 10px;
+    background-color: white;
+    position:relative;
+}
+.formulario2{
+    color:white;
+    background-color:green;
+    font-size:20px;
+    padding-bottom:50px;
+}
+
+
+.botones{
+    margin: auto;
+    position:relative;
+    margin-top:20px;
+    width: 50%;
+}
+.form2{
+    display:inline;
+    position:relative;
+    color:black;
+}
+.msjsv{
+    font-size:18px;
+    color:blue;
+    font-weight:bold;
+}
+
+.msjbr{
+    font-size:18px;
+    color:red;
+    font-weight:bold;
+}
+
+
+label{
+    font-size:20px;
+}
+
+.botonizq, .botonder{
+    width:200px;
+    height:auto;
+    
+}
+
+.botonizq{
+    padding-right:25px;
+    float:left;
+}
+.botonder{
+    padding-left:25px;
+    float:left;
+}
+
+
+.preferencias{
+    font-size:25px;
+}
+
