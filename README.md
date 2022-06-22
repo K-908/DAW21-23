@@ -6,3 +6,7 @@ Se puede leer el aviso legal en el siguiente enlace:
 https://www.educacionyfp.gob.es/fpadistancia/comunes/aviso-legal.html
 
 Para cualquier duda, queja o sugerencia: cmccaffery1988@gmail.com
+
+
+Edit: 22-Junio-2022
+Añadidas las tareas ralizadas de cada asignatura y un archivo de Excel con las notas obtenidas
