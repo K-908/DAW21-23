@@ -1,0 +1,64 @@
+      ___           ___           ___           ___           ___     
+     /\  \         /\  \         /\  \         /\  \         |\__\    
+    /::\  \       /::\  \       /::\  \       /::\  \        |:|  |   
+   /:/\:\  \     /:/\:\  \     /:/\:\  \     /:/\:\  \       |:|  |   
+  /::\~\:\  \   /::\~\:\  \   /:/  \:\  \   /::\~\:\  \      |:|__|__ 
+ /:/\:\ \:\__\ /:/\:\ \:\__\ /:/__/_\:\__\ /:/\:\ \:\__\ ____/::::\__\
+ \/_|::\/:/  / \:\~\:\ \/__/ \:\  /\ \/__/ \:\~\:\ \/__/ \::::/~~/~   
+    |:|::/  /   \:\ \:\__\    \:\ \:\__\    \:\ \:\__\    ~~|:|~~|    
+    |:|\/__/     \:\ \/__/     \:\/:/  /     \:\ \/__/      |:|  |    
+    |:|  |        \:\__\        \::/  /       \:\__\        |:|  |    
+     \|__|         \/__/         \/__/         \/__/         \|__|    
+
+https://regexr.com/
+
+NIF  
+**************************************
+*    /(\d{8})-([a-z]|[A-Z]){1}$/     *
+*                                    *
+**************************************
+
+(\d{8})                 Empieza solicitando 8 dígitos entre 0 y 9
+-                       El siguiente caracter deberá ser un guión (-)
+([a-z]|[A-Z]){1}        Después un único caracter que sea una letra cualquiera, tanto mayúscula como minúscula
+
+
+Email
+************************************************************************
+*  /^([\w-\.])+(@)([\w-\.])+(\.)([a-zA-Z]){2,}((\.)([a-zA-Z]){2,})?$/  *
+*                                                                      *
+************************************************************************
+^                       Marca el comienzo del String
+([\w-\.])+              Primero, para el nombre del correo, un caracter o más, que sea una letra mayúscula o minúscula, un número o los símbolos guión (-), punto (.) o barra baja (_)
+(@)                     El siguiente caracter debe ser el símbolo (@)
+([\w-\.])+              Para el dominio del correo el mismo conjunto de símbolos que en el primer bloque
+(\.)                    El siguiente caracter debe ser un punto (.)
+([a-zA-Z]){2,}          Para el sufijo del dominio, dos caracteres alfabéticos o más (https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains)
+((\.)([a-zA-Z]){2,})?   Opcional, añadir un punto (.) y otros dos caracteres alfabéticos o más, para los dominios de segundo niveo: .co.uk, co.jp etc... (https://en.wikipedia.org/wiki/Second-level_domain)
+
+
+Fecha
+**********************************************************************************
+*   /^((0?|[1-2])[0-9]|(3)[0-1])((\/)|-)(((0)[0-9])|((1)[0-2]))((\/)|-)\d{4}$/   *
+*                                                                                *
+**********************************************************************************
+
+^                    Marca el comienzo del String
+((0?|[1-2])[0-9]     El primer caracter es un 0 (opcional), Ó un 1 ó 2 (obligatorio) seguido de un número entre 0 y 9
+|(3)[0-1])           O el primer dígito puede ser un 3 seguido de un 0 ó un 1
+((\/)|-)             Después tenemos que elegir entre un guión (-) o un slash (/)
+(((0)[0-9])          Luego podemos poner un 0 seguido de un número entre 0 y 9
+|((1)[0-2]))         O podemos poner un 1 seguido de un número entre 0 y 2
+((\/)|-)             Volvemos a elegir entre guión (-) o slash (/)
+\d{4}                Seguido de un número de 4 dígitos
+
+Hora
+***************************************
+*   (([0-1]\d)|([2][0-3])):[0-5]\d$   *
+*                                     *
+***************************************
+
+([0-1]\d)           Primero introducimos 0 ó 1 seguido de un número cualquiera
+|([2][0-3])         O introducimos un 2 seguido de un número entre 0 y 3
+:                   Introducimos el símbolo dos puntos (:)
+[0-5]\d             Por último un número entre el 0 y el 5 y seguido de otro número cualquiera

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>DWEC07_Tarea02</title>
+
+    <script>
+        //Añadimos a la ventana un evento cuando termine de cargar, que será la función "inicio"
+        window.addEventListener("load", inicio);
+        //La función inicio añade el evento "buscar" al botón de nuestra página
+        function inicio(){
+            document.getElementById("boton").addEventListener("click", buscar);
+        }
+        //Función que se ejecutará cada vez que se haga click en el botón de la página
+        function buscar(){
+            //Creamos un objeto XMLHttpRequest
+            var xhr = new XMLHttpRequest();
+            //Cuando cambie su estado, ejecutamos la siguiente función anónima
+            xhr.onreadystatechange=function(){
+                //La función solo se ejecutará si la página ha cargado correctamente
+                if(this.readyState == 4 && this.status==200){
+                    //Si la página ha cargado bien, se ejecutará la función "cargaXML" usando los datos recibidos como parámetro
+                    cargarXML(this);
+                }
+            };
+            //Creamos las variables "idioma" y "cantidad" para especificarlo en la URL para recibir datos
+            var idioma = "&lang=";
+            idioma+=document.getElementById("idioma").value;
+            var cantidad = "&amount=";
+            cantidad+=document.getElementById("cantidad").value;
+            //La URL completa será la básica más las variables idioma y cantidad. También especifica que los datos volverán en formato XML
+            var url = "https://v2.jokeapi.dev/joke/Any?format=xml&type=twopart";
+            url+=idioma;
+            url+=cantidad;
+            //Enviamos la petición por el método "get" usando la URL completa con nuestras variables de idioma y cantidad
+            xhr.open("GET", url, true);
+            xhr.send();
+        }
+        function cargarXML(xml){
+            //Transformamos los datos recibidos como parámetro a formato XML
+            var docXML = xml.responseXML;
+            //Meteremos toda la información en una lista ordenada, así que creamos la variable "contenido" donde iremos creando todo el HTML
+            var contenido = "<ol>";
+            //Metemos en un array todos los "setup", la primera parte del chiste
+            var setup = docXML.getElementsByTagName("setup");
+            //Metemos en otro array todos los "delivery", la segunda parte del chiste
+            var delivery = docXML.getElementsByTagName("delivery");
+            //Recorremos los arrays y los vamos incluyendo en filas dentro de la lista
+            for(var i=0;i<setup.length;i++){
+                contenido += "<li> -"+setup[i].childNodes[0].nodeValue+"<br>-"+delivery[i].childNodes[0].nodeValue+"</li>";
+            }
+            //Añadimos al contenido el cierre de la lista
+            contenido += "</ol>"
+            //Escribimos la variable contenido dentro del elemento con
+            document.getElementById("output").innerHTML = contenido;
+        }
+    </script>
+
+</head>
+<body>
+    <h1>Ejercicio 2</h1>
+<p>Implementar una página web que, haciendo uso de JavaScript y del objeto
+    XMLHttpRequest , acceda a los datos de la web que te devuelve datos en formato XML,
+    mediante una petición AJAX, y los muestre en dicha página.</p>
+<hr>
+
+<button id="boton">Generar chiste</button>
+<select name="idioma" id="idioma">
+    <option value="es">Español</option>
+    <option value="">Inglés</option>
+    <option value="fr">Francés</option>
+    <option value="pt">Portugués</option>
+    <option value="de">Alemán</option>
+    <option value="cs">Checo</option>
+</select>
+<label for="cantidad">¿Cuántos chistes? (1-10)</label>
+<input type="number" id="cantidad" name="cantidad" min="1" max="10" value="1">
+<div id="output"></div>
+<p id="nota">No todos los idiomas tienen suficientes chistes para atender la petición.<br> Si se piden más chistes de los que hay, se darán todos los chistes de ese idioma<br> Inglés es el idioma que más chistes tiene.
+</p>
+
+<ul>
+	<li><a href="ejercicio1.html">Ejercicio 1</a></li>
+	<li><a href="ejercicio2.html">Ejercicio 2</a></li>
+	<li><a href="ejercicio3.html">Ejercicio 3</a></li>
+	<li><a href="ejercicio4.html">Ejercicio 4</a></li>
+    <li><a href="ejercicio5.html">Ejercicio 5</a></li>
+</ul>
+
+</body>
+</html>

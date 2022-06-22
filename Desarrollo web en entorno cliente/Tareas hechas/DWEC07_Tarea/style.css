@@ -1,0 +1,55 @@
+body{
+    background-color: rgb(73, 73, 73);
+    margin:auto;
+    width:50%
+}
+
+h1, h2, h3, p{
+    color:white;
+}
+h1{
+    margin:auto;
+    width:35%;
+}
+
+p{
+    width:80%;
+    margin-left:15px;
+    margin-top:20px;
+    margin-bottom:20px;
+    padding:10px;
+    border:2px solid white;
+    font-size: 20px;
+}
+
+a{
+    text-decoration:underline;
+    color:red;
+}
+
+#pruebas{
+    color:white;
+    font-size:20px;
+    border:2px solid red;
+    padding:30px;
+}
+
+#nota{
+    border:0;
+    color:red;
+    font-size:15px;
+    text-align:center;
+}
+
+th{
+    background-color:red;
+}
+
+tr{
+    background-color:white;
+}
+
+
+#control{
+    margin-bottom:20px;
+}

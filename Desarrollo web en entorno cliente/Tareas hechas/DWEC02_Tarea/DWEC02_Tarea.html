@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DWEC02_Tarea</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <h1>Tarea DWEC02</h1>
+    
+<table>
+    <tr>
+        <td>
+            <h3>Tabla de multiplicar del 7</h3>
+        <!--Bucle que se ejecuta 10 veces, con una variable i cuyo valor comienza
+            en 1 y se va incrementando en 1 cada vez que se ejecuta. Se multiplica 7 por el valor de i-->
+            <script type="text/javascript">
+                for(i=1;i<=10;i++){
+                    document.write("<p>"+"7 x "+i+" = "+7*i+"</p>");
+                }   
+            </script>
+        </td>
+        <td>
+            <h3>Tabla de sumar del 8</h3>
+        <!--Bucle con dos variables, primero y segundo, que se ejecutará mientras el valor de
+            la variable "segundo" sea mayor o igual a 0. La primera variable comienza con el valor 0 
+            y su valor se incrementa en 1 cada vez que se ejecuta el bucle. La segunda variable 
+            comienza con el valor 8 y su valor disminuye en 1 cada vez que se ejecuta el bucle.
+            Nos devuelve el resultado de primero+segundo-->
+            <script>
+                var primero = 0;
+                var segundo = 8;
+                while(segundo >=0){
+                    document.write("<p>"+primero+" + "+ segundo+" = "+(primero+segundo)+ "</p>");
+                    primero++;
+                    segundo--;
+                }
+            </script>
+        </td>
+        <td>
+            <h3>Tabla de dividir del 9</h3>
+            <!--Bucle que se ejecuta mínimo una vez, con una variable i cuyo valor comienza en 0 y se incrementa en 1 
+                en cada ciclo, y que seguirá ejecutándose mientras que la variable i valga menos de 10.
+                Cada vez se ejecuta el bucle el valor de i se incrementa en 1. El primer elemento de la cuenta
+                es 9 multiplicado por el ńumero i. El resultado de la operación siempre es el valor de i.-->
+                <script>
+                    var i = 0;
+                    do{
+                        document.write("<p>"+(i*9)+" / 9 = "+i+"</p>");
+                        i++;
+                    } while (i<=10);
+                </script>
+        </td>
+    </tr>
+    <tr>
+            <td colspan="100%">
+                <h3>Operaciones de bits</h3>
+                <script>
+                    //Movemos los bits de 125 tres posiciones a la derecha para dividir entre 8
+                    var a = 125>>>3;
+                    document.write("<p>"+"125 / 8 = "+a+"</p>");
+                    //Movemos los bits de 40 dos posiciones a la izquierda para multiplicar por 4
+                    var b = 40<<2;
+                    document.write("<p>"+"40 x 4 = "+b+"</p>");
+                    //Movemos los bits de 25 una vez a la derecha para dividir entre dos.
+                    //Al estar únicamente moviendo los bits y eliminando los que se "salen", no podemos obtener decimales.
+                    var c = 25.0>>1;
+                    document.write("<p>"+"25 / 2 = "+c+"</p>");
+                    //Movemos los bits de 10 4 posiciones a la izquierda para multiplicar por 16.
+                    var d = 10<<4;
+                    document.write("<p>"+"10 x 16 = "+d+"</p>");
+                </script>
+            </td>
+    </tr>
+</table>
+                
+    </body>
+</html>

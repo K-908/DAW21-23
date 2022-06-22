@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DWEC04_Tarea</title>
+</head>
+<body style="background-color:aqua; margin-left:50px;">
+    <h1 style="text-align:center;">DWEC04</h1>
+    <h4 style="text-align:center;">Tarea</h4>
+<script>
+//Creamos la clase edificio, que tendrá un constructor y varios métodos.
+    class Edificio{
+//Constructor de la clase Edificio. Solicita calle, número y código postal como argumentos
+        constructor(calle, numero, cp){
+            this.calle = calle;
+            this.numero = numero;
+            this.cp = cp;
+            //No lo solicita como argumento, pero iniciamos un array que guardará las plantas, puertas y quién vive en cada una
+            this.inquilinos = new Array();
+            //Informamos de que el objeto Edificio se ha creado correctamente.
+            document.write("Construido un nuevo edificio en calle: "+this.calle+", nº: "+this.numero+", CP: "+this.cp+".</br>");
+        }
+        //Método para agregar plantas y puertas. Solicita el número de plantas y puertas que queremos añadir a nuestro edificio.
+        agregarPlantasYPuertas(plantas, puertas){
+            //En caso de que el array "inquilinos" esté vacío, recorremos todas las puertas de todas las plantas
+            //que hayamos indicado y añadiremos Strings vacíos.
+            if(this.inquilinos.length==0){
+                    //Comprobamos que los parámetros puertas y plantas es mayor que 0
+                    if(plantas>=1 && puertas>=1){
+                    //recorremos el array tantas veces como plantas hayamos declarado
+                    for(let i=0;i<plantas;i++){
+                        //y en cada pasada creamos un array secundario en ese elemento del array principal
+                        this.inquilinos[i]= new Array();
+                        //recorremos el array secundario tantas veces como puertas hayamos declarado
+                        for(let j=0;j<puertas;j++){
+                            //y en cada pasada añadimos un String vacío en cada elemento del array bidimensional
+                            this.inquilinos[i][j]="";
+                        }
+                    }
+                //En caso de que sea un edificio vacío y no añadamos ni puertas ni plantas, mostramos el siguiente mensaje de error.
+                }else if(plantas<=0 && puertas<=0){
+                    document.write("No puede haber un edificio sin plantas ni puertas");
+                //En caso de que sea un edificio vacío y no añadamos plantas, mostramos el siguiente mensaje de error.
+                } else if(plantas<=0){
+                    document.write("No puede haber un edificio sin plantas");
+                //En caso de que sea un edificio vacío y no añadamos puertas, mostramos el siguiente mensaje de error.
+                } else if(puertas<=0){
+                    document.write("No puede haber un edificio sin puertas");
+                }
+                //Si es un edificio que ya tiene asignadas puertas y plantas, volver a ejecutar este método añadirá
+                //nuevas puertas y plantas a las ya existentes
+            }else if(this.inquilinos.length>0){
+                //Creamos variables con el total de plantas y puertas que va a tener el edificio
+                var totalPlantas = this.inquilinos.length+plantas;
+                var totalPuertas = this.inquilinos[0].length+puertas;
+                //Recorremos el array principal tantas veces como plantas hayamos declarado.
+                    for(let i=0;i<plantas;i++){
+                    //Y en cada pasada añadimos un nuevo array secundario.
+                    this.inquilinos.push(new Array());
+                    }
+                    //Recorremos cada array secundario
+                    for(let i=0;i<totalPlantas;i++){
+                        //Y en cada uno añadimos puertas hasta que haya tantas como debe tener usando la variable totalPuertas
+                        while(this.inquilinos[i].length<totalPuertas){
+                            this.inquilinos[i].push("");
+                        }
+                    }
+            }
+        }
+        //Método que recorre el array bidimensional "inquilinos" e imprime quién vive en cada casa
+        imprimePlantas(){
+            //Imprimimos un título para el listado de inquilinos
+            document.write("</br><b>Lista de propietarios del edificio calle "+this.calle+" número "+this.numero+"</b></br></br>");
+            //Recorremos el array principal
+            for(let i=0;i<this.inquilinos.length;i++){
+                //Recorremos cada array secundario
+                for(let j=0;j<this.inquilinos[i].length;j++){
+                    //Mensaje que indica quién vive en cada casa. El número de piso y puerta es su posición en el array + 1 (los array empiezan a contar en 0)
+                    document.write("Propietario del piso "+(j+1)+" de la planta "+(i+1)+": "+this.inquilinos[i][j]);
+                    //Si esa casa no tiene inquilino, únicamente imprimimos un salto de línea.
+                    if(this.inquilinos[i][j]==""){
+                        document.write("</br>")
+                        //En caso de que esté habitada, añadimos un punto al final del nombre y un salto de línea
+                    } else{
+                        document.write(".</br>")
+                    }
+                }
+            }
+            //Añadimos un último salto de línea para mejorar la legibilidad de la página
+            document.write("</br>");
+        }
+        //Método que toma un número como argumento y modifica el valor "numero" del edificio
+        modificarNumero(numero){
+            //El número pasado como argumento tiene que ser mayor que 0
+            if(numero>0){
+                this.numero = numero;
+            }
+            else{
+                //Si no, nos salta este mensaje de error
+                document.write("No se puede asignar un número menor que 1 a la dirección</br>");
+            }
+        }
+        //Método que toma un String como argumento y modifica el valor "calle" del edificio
+        modificarCalle(calle){
+            //Si el String introducido no está vacío y no es numérico, se cambia el nombre de la calle
+            if(calle!=""&&isNaN(calle)){
+                this.calle = calle;
+            }else{
+                document.write("Todos los edificios deben tener un nombre de calle</br>");
+            }
+            
+        }
+        //Método que toma un número como argumento y modifica el valor "cp" (código postal) del edificio
+        modificarCodigoPostal(codigo){
+            //En España los 2 primeros dígitos del código postal van del 01 al 52. Comprobamos que sea así.
+            if(codigo<1000 || codigo>52999){
+                document.write("Código postal inválido</br>")
+            }
+            //Para los códigos postales del 01 al 09, añadimos el dígito 0 al principio para mantener el formato correcto
+            //y establecemos el nuevo código postal
+            else if(codigo>=1000 && codigo<=9999){
+                codigo="0"+codigo;
+                this.cp=codigo;
+            //Si no hay ningún problema con el código introducido, se modifica
+            } else{
+                this.cp=codigo;
+            }
+        }
+        //Método que devuelve el valor de la variable "calle"
+        imprimeCalle(){
+            return this.calle;
+        }
+        //Método que devuelve el valor de la variable "numero"
+        imprimeNumero(){
+            return this.numero;
+        }
+        //Método que devuelve el valor de la variable "cp"
+        imprimeCodigoPostal(){
+            return this.cp;
+        }
+        //Método para asignar un propietario a una de las casas
+        agregarPropietario(nombre, puerta, planta){
+            //Comprobamos que se haya escrito un nombre no numérico
+            if(nombre===""||!isNaN(nombre)){
+                document.write("Nombre incorrecto.</br>");
+            //Si se ha introducido un número de puerta que sea superior al número de puertas que hay
+            //o un nuḿero negativo, salta un error
+            } else if(puerta>this.inquilinos[0].length || puerta<=0){
+                document.write("Has seleccionado una puerta inexistente.</br>")
+            //Si se ha introducido un número de planta que sea superior al número de plantas que hay
+            //o un nuḿero negativo, salta un error
+            } else if(planta>this.inquilinos.length || planta<=0){
+                document.write("Has seleccionado una planta inexistente.</br>")
+            //Si los datos introducidos son correctos
+            }else{
+            //Asignamos ese elemento del array al nombre indicado. Restamos 1 al nombre introducido para que coincida
+            //con el modo de contar que tienen los arrays
+                this.inquilinos[planta-1][puerta-1]=nombre;
+            //imprimimos un mensaje indicando que a alguien se le ha asignado una casa
+                document.write(nombre+" es ahora el propietario de la puerta "+puerta+" de la planta "+planta+".</br>");
+            }
+        }
+    }
+
+//Utilizamos el objeto Edificio para mostrar lo que indica la página.
+var edificioA = new Edificio("Garcia Prieto", 58, 15706);
+var edificioB = new Edificio("Camino Caneiro", 29, 32004);
+var edificioC = new Edificio("San Clemente", "s/n", 15705);
+
+document.write("</br></br>");
+document.write("El código postal del edificio A es: "+edificioA.imprimeCodigoPostal()+".</br>");
+document.write("La calle del edificio C es: "+edificioC.imprimeCalle()+".</br>");
+document.write("El edificio B está situado en la calle "+edificioB.imprimeCalle()+" numero"+edificioB.imprimeNumero()+".</br>");
+document.write("</br></br>");
+edificioA.agregarPlantasYPuertas(2,3);
+
+edificioA.agregarPropietario("Jose Antonio Lopez",1,1);
+edificioA.agregarPropietario("Luisa Martinez",2,1);
+edificioA.agregarPropietario("Marta Castellón",3,1);
+edificioA.agregarPropietario("Antonio Pereira",2,2);
+edificioA.imprimePlantas();
+edificioA.agregarPlantasYPuertas(1,0);
+edificioA.agregarPropietario("Pedro Meijide",2,3);
+edificioA.imprimePlantas();
+
+</script>
+
+</body>
+</html>

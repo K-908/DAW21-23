@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>subVentana</title>
+</head>
+<body>
+    <h1>TAREA DWEC03</h1><hr/>
+    <!--Añádimos un botón para cerrar la ventana-->
+    <button type="button" class="boton2" style="text-align:center;" onclick="window.close();">Cerrar ventana</button> 
+    <script>
+        //función que mostrará el texto en pantalla.
+        function imprimirTexto(){
+            //creamos una variable vacía para guardar el estado de Java
+            var javaSiNo = "";
+            if(navigator.javaEnabled()){
+                //si Java está habilitado en nuestro navegador, 
+                //nuestra variable vacía pasará a tener este mensaje
+                javaSiNo+="Java SI disponible en esta ventana";
+            } else{
+                //si Java NO está habilitado en nuestro navegador, 
+                //nuestra variable vacía pasará a tener este otro mensaje
+                javaSiNo+="Java NO disponible en esta ventana";
+            }
+            //Escribimos un título
+            document.write("<h3>Ejemplo de Ventana Nueva</h3>");
+            //Mostramos la URL completa de la página. Al ser una página local,
+            // la dirección cambiará según el ordenador donde se abra
+            document.write("URL completa: "+location.href+"<br>");
+            //Nos muestra el protocolo que usa nuestra página (HTTP/HTPS)
+            document.write("Procolo utilizado: "+location.protocol+"<br>");
+            //Nos muestra el nombre de nuestro navegador
+            document.write("Navegador: "+navigator.appCodeName+"<br>");
+            //Nos muestra la variable creada anteriormente con el estado de Java.
+            document.write(javaSiNo+"<br>");
+            //crea un iframe que nos muestra google.es. 
+            //Los iframes están deshabilitados en Firefox (la página solo ha sido probada en Firefox)
+            document.write("<iframe src='http://www.google.es'></iframe>")
+        }
+        //ejecutamos la función que muestra el texto en pantalla
+        imprimirTexto();
+    </script>
+</body>
+</html>

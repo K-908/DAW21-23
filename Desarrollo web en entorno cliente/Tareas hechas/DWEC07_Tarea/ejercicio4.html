@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery3.6.0.min.js"></script>
+    <title>DWEC07_Tarea04</title>
+    <script>
+        //Cuando el documento haya cargado, ejecutamos la función "inicio"
+        $(document).ready(inicio);
+        //Función inicio
+        function inicio(){
+            //Empezamos añadiendo a una variable el código de la cabecera de la tabla que queremos dibujar
+            var tablaHTML = '<table id="tabla"><th>#</th><th>Modelo</th><th>Color</th><th>Combustible</th><th>Puertas</th></table>';
+            //Cuando hacemos click sobre el botón, se ejecuta una función anónnima
+            $("#buscar").click(function(){
+                //Creamos una variable URL que tendrá la URL base + la cantidad que le hayamos especificado de coches a buscar
+                var url = "https://random-data-api.com/api/vehicle/random_vehicle?is_xml=true&size="+$("#cantidad").val();
+                //Función ajax de jQuery
+                $.ajax({
+                //Como URL usará la variable URL que hemos creado antes
+                url: url,
+                //Los datos los recibirá en formato XML
+                dataType: 'xml',
+                //Función que se éjecutará si ha realizado la petición con éxito, usando los datos recibidos como parámetro
+                success: function(data){
+                    //Añadimos al div el HTML para dibujar la cabecera de la tabla
+                    $("#divTabla").html(tablaHTML);
+                    //Creamos una variable para contabilizar el número de filas que vamos dibujando
+                    var i = 1;
+                    //La estructura de los datos XML es que hay un elemento padre, "objects", y luego cada coche es su propio elemento "object"
+                    //Recorremos todos los elementos "object" que encontramos
+                    $(data).find("objects object").each(function(){
+                        //Cada vez que encuentre un objeto nuevo, dibuja una tabla, con ID = tr + el número de vuelta que lleve: tr1, tr2, tr3 etc...
+                        document.getElementById("tabla").innerHTML +="<tr id=tr"+i+">";
+                        //Añadimos a la variable row el elemento con ID tr + el número de vuelta que lleve: tr1, tr2, tr3 etc...
+                        var row = document.getElementById("tr"+i);
+                        //Añadimos un cuadro con el valor de la variable i
+                        row.innerHTML += "<td>"+i+"</td>";
+                        //Vamos añadiendo a cada fila un cuadro con la información que nos va devolviendo
+                        row.innerHTML += "<td>"+$(this).find('make-and-model').text()+"</td>";
+                        row.innerHTML += "<td>"+$(this).find('color').text()+"</td>";
+                        row.innerHTML += "<td>"+$(this).find('fuel-type').text()+"</td>";
+                        row.innerHTML += "<td>"+$(this).find('doors').text()+"</td>";
+                        //Al final del todo, cerramos la fila
+                        tabla.innerHTML +="</tr>"
+                        //Y sumamos 1 a la variable i
+                        i++;
+                    });
+                },
+                //Función que se ejecutará si se produce algún error durante la conexión
+                error: function(){
+                    //Simplemente nos mostrará un mensaje en lugar de la tbala
+                    $("#divTabla").text("Error al obtener coches");
+                },
+            })
+        });
+    }
+    
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 4</h1>
+    <p>4.- Implementar una página web que, haciendo uso de JavaScript y jQuery, acceda a los datos de la web que te devuelve datos en formato XML y los muestre en dicha página.</p>
+    <hr>
+
+<ul></ul>
+<div id="control">
+    <label for="cantidad">¿Cuántos coches?</label>
+    <input type="number" min="1" max="100" value="1" id="cantidad" name="cantidad">
+    <button id="buscar" name="buscar">Buscar coches</button>
+</div>
+<div id="divTabla"></div>
+<p id="nota">Aunque no hay límite en el número de coches que se pueden solicitar, solicitando más de 100 coches hace que se cuelgue la página.<br/>
+No salta un error, pero tampoco llega a dibujar la tabla, solo la cabecera.
+<br/>Por ese motivo hemos limitado el número de peticiones a 100 como máximo</p>
+
+<ul>
+	<li><a href="ejercicio1.html">Ejercicio 1</a></li>
+	<li><a href="ejercicio2.html">Ejercicio 2</a></li>
+	<li><a href="ejercicio3.html">Ejercicio 3</a></li>
+	<li><a href="ejercicio4.html">Ejercicio 4</a></li>
+    <li><a href="ejercicio5.html">Ejercicio 5</a></li>
+</ul>
+</body>
+</html>

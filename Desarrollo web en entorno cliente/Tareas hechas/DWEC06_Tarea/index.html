@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>DWEC06_Tarea</title>
+    <link type="text/css" rel="stylesheet" href="estilos.css" />
+    <script type="text/javascript" src="dibujar.js"></script>
+  </head>
+  <body>
+    <div class="menu">
+    <h3>TABLERO DE DIBUJO EN JAVASCRIPT</h3>
+    <table width="500" border="1" id="paleta" summary="Tabla de selección de colores">
+      <caption>
+        Haga click en un color para comenzar a pintar
+      </caption>
+      <tr>
+        <td class="color color1"></td><td class="color color2"></td>
+        <td class="color color3"></td><td class="color color4"></td>
+        <td class="color color5"></td><td class="color color6"></td>
+      </tr>
+      <tr>
+        <td colspan="6" id="pincel">Estado del pincel</td>
+      </tr>
+    </table>
+  </div>
+    <div id="zonadibujo">
+      <table class="tablerodibujo" id="lienzo">
+    </table>
+    </div>
+  </body>
+</html>

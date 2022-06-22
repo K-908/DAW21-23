@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>DWEC07_Tarea03</title>
+
+    <script>
+        //Los pasos son prácticamente idénticos a los del ejercicio 2. Solo detallaremos lo que es distinto.
+        window.addEventListener("load", inicio);
+        function inicio(){
+            document.getElementById("boton").addEventListener("click", buscar);
+        }
+
+        function buscar(){
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                cargaJSON(this);
+            }
+        };
+            var lang = "&lang="+document.getElementById("idioma").value;
+            var amount = "&amount="+document.getElementById("cantidad").value;
+            var url = "https://v2.jokeapi.dev/joke/Any?format=json"+lang+amount;
+            xhr.open('get', url, true);
+            xhr.send();
+    }
+
+
+        function cargaJSON(data){
+            //Parseamos a JSON los datos obtenidos
+            const resObj = JSON.parse(data.responseText);
+            //Introducimos en una variable "cantidad" la cantidad de chistes qeu hemos solicitado
+            if(document.getElementById("cantidad").value == 1){
+                var cantidad = 1;
+            } else{
+                var cantidad = resObj.jokes.length;
+            }
+            
+            var contenido = "<ol>";
+            //En caso de que solo hayamos solicitado uno
+            if(cantidad == 1){
+                //Dependiendo de si nos devuelve uno en dos partes o de una sola frase tendremos que usar un formato u otro
+                if(resObj.type=="twopart"){
+                    //Para los de dos partes, añadimos la "setup" y la "delivery" con un salto de línea, pero forman parte de la misma línea dentro de la lista
+                    contenido +="<li>"+resObj.setup+"<br>"+resObj.delivery+"</li>";
+                }
+                //Si son chistes de una sola frase, simplemente la añadimos a una línea de la lista
+                if(resObj.type=="single"){
+                    contenido +="<li>"+resObj.joke+"</li>";
+                }
+                //Si hemos solicitado más de uno, es igual pero hay que especificar la posición dentro del array en la que se encuentran
+            } else{
+                //En los datos que hemos obtenido, tendremos un array de elementos "jokes", cada uno de los cuales tendrá dentro
+                //la información que queremos que se muestre en pantalla
+                for(var i=0;i<cantidad;i++){
+                if(resObj.jokes[i].type=="twopart"){
+                    contenido +="<li>"+resObj.jokes[i].setup+"<br>"+resObj.jokes[i].delivery+"</li>";
+                }
+                if(resObj.jokes[i].type=="single"){
+                    contenido +="<li>"+resObj.jokes[i].joke+"</li>";
+                }
+            }
+            }
+            document.getElementById("output").innerHTML = contenido;
+        }
+
+
+
+        
+    </script>
+
+</head>
+<body>
+    <h1>Ejercicio 3</h1>
+    <p>Implementar una página web que, haciendo uso de JavaScript y del objeto
+        XMLHttpRequest , acceda a los datos de la web que te devuelve datos en formato JSON,
+        mediante una petición AJAX, y los muestre en dicha página.</p>
+    <hr>
+    <button id="boton">Generar chiste</button>
+    <select name="idioma" id="idioma">
+        <option value="es">Español</option>
+        <option value="">Inglés</option>
+        <option value="fr">Francés</option>
+        <option value="pt">Portugués</option>
+        <option value="de">Alemán</option>
+        <option value="cs">Checo</option>
+    </select>
+    <label for="cantidad">¿Cuántos chistes? (1-10)</label>
+    <input type="number" id="cantidad" name="cantidad" min="1" max="10" value="1">
+    <div id="output"></div>
+    <p id="nota">No todos los idiomas tienen suficientes chistes para atender la petición.<br> Si se piden más chistes de los que hay, se darán todos los chistes de ese idioma<br> Inglés es el idioma que más chistes tiene.
+    </p>
+
+    <ul>
+        <li><a href="ejercicio1.html">Ejercicio 1</a></li>
+        <li><a href="ejercicio2.html">Ejercicio 2</a></li>
+        <li><a href="ejercicio3.html">Ejercicio 3</a></li>
+        <li><a href="ejercicio4.html">Ejercicio 4</a></li>
+        <li><a href="ejercicio5.html">Ejercicio 5</a></li>
+    </ul>
+</body>
+</html>

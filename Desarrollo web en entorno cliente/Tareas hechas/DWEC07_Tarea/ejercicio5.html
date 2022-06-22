@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery3.6.0.min.js"></script>
+    <title>DWEC07_Tarea05</title>
+    <script>
+        //Los pasos son prácticamente idénticos a los del ejercicio 4. Solo detallaremos lo que es distinto.
+        $(document).ready(inicio);
+        function inicio(){
+            var tablaHTML = '<table id="tabla"><th>#</th><th>Modelo</th><th>Color</th><th>Combustible</th><th>Puertas</th></table>';
+            $("#buscar").click(function(){
+                var url = "https://random-data-api.com/api/vehicle/random_vehicle?size="+$("#cantidad").val();
+                $.ajax({
+                    url:url,
+                    //En tipo de datos, especificamos que recibiremos datos en JSON
+                    dataType: 'json',
+                    success: function(data){
+                        $("#divTabla").html(tablaHTML);
+                        //Al recibir pares de datos "índice : valor", podemos usar los índices para numerar las filas
+                        $(data).each(function(index, value){
+                            document.getElementById("tabla").innerHTML +="<tr id=tr"+index+">";
+                            var row = document.getElementById("tr"+index);
+                            //Vamos añadiendo cuadros con la información necesaria, pero con datos en JSON no hay que especificar la posición en el array
+                            //simplemente los irá colocando uno a uno
+                            row.innerHTML += "<td>"+(index+1)+"</td>";
+                            row.innerHTML += "<td>"+value.make_and_model+"</td>";
+                            row.innerHTML += "<td>"+value.color+"</td>";
+                            row.innerHTML += "<td>"+value.fuel_type+"</td>";
+                            row.innerHTML += "<td>"+value.doors+"</td>";
+                            tabla.innerHTML +="</tr>"
+                        });
+                    }
+                })
+            });
+        }
+    
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 5</h1>
+    <p>5.- Implementar una página web que, haciendo uso de JavaScript y jQuery, acceda a los
+        datos de la web que te devuelve datos en formato JSON y los muestre en dicha página.</p>
+    <hr>
+
+<ul></ul>
+<div id="control">
+    <label for="cantidad">¿Cuántos coches?</label>
+    <input type="number" min="1" max="100" value="1" id="cantidad" name="cantidad">
+    <button id="buscar" name="buscar">Buscar coches</button>
+</div>
+<div id="divTabla"></div>
+<p id="nota">Aunque no hay límite en el número de coches que se pueden solicitar, solicitando más de 100 coches da problemas.<br/>
+    No salta un error, pero hace que recibamos una única fila con valores "undefined".
+    <br/>Por ese motivo hemos limitado el número de peticiones a 100 como máximo</p>
+<ul>
+	<li><a href="ejercicio1.html">Ejercicio 1</a></li>
+	<li><a href="ejercicio2.html">Ejercicio 2</a></li>
+	<li><a href="ejercicio3.html">Ejercicio 3</a></li>
+	<li><a href="ejercicio4.html">Ejercicio 4</a></li>
+    <li><a href="ejercicio5.html">Ejercicio 5</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DWES03_Tarea</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <script>
+        /*
+        Primero se ejecutan las funciones que nos piden información.
+        Las funciones están escritas más abajo.
+        */
+    var nombre = pedirNombre(); //solicita el nombre y apellidos
+    var nacimiento = pedirFechaNacimiento(); //solicita la fecha de nacimiento, primero día, luego mes, luego año
+    //Empezamos escribiendo el título de la página y una línea horizontal para separarlo del resto del texto
+    document.write("<h1>TAREA DWEC03</h1><hr/>");
+    //Envolvemos todo el texto en un div para controlar el posicionamiento
+    document.write("<div id='funciones'>");
+    //El nombre y los apellidos los ha pedido por separado, así que los concatenamos para formar un único String
+    //Nos muestra el nombre y los apellidos.
+    document.write("Buenos días "+nombre+"<br>");
+    //Nos muestra la longitud de nuestro nombre completo, incluyendo espacios.
+    document.write("Tu nombre tiene "+nombre.length+" caracteres, incluidos espacios<br>");
+    //Nos indica la primera ocurrencia de la letra A en nuestro nombre.
+    document.write("La primera letra A de tu nombre está en la posición "+(nombre.toLowerCase().indexOf("a")+1)+"<br>");
+    //Nos indica la última ocurrencia de la letra A en nuestro nombre.
+    document.write("La última letra A de tu nombre está en la posición "+(nombre.toLowerCase().lastIndexOf("a")+1)+"<br>");
+    //Nos muestra el nombre menos las 3 primeras letras. Si el nombre es muy corto, muestra un error
+    document.write("Tu nombre menos las 3 primeras letras es: "+acortarNombre(nombre)+"<br>");
+    //Pasamos el nombre a todo mayúsculas.
+    document.write("Tu nombre todo en mayúsculas es: "+nombre.toUpperCase()+"<br>");
+    //Calculamos la edad en años en base a la fecha de nacimiento introducida y usando el objeto Date.
+    document.write("Tu edad es "+edad(nacimiento)+"<br>");
+    //Mostramos el día de la semana en el que se nació usando el objeto Date
+    document.write("Naciste un feliz "+diaSemana(nacimiento)+" del año "+nacimiento.getFullYear()+"<br>");
+    //Mostramos el coseno del número pasado como argumento en la función
+    document.write(coseno(180));
+    //Mostramos el número mayor del array numérico pasado como argumento en la función
+    document.write(mayor([34,67,23,75,35,19]));
+    //Mostramos un número aleatorio con la precisión indicada en el argumento de la función
+    //Podemos elegir la precisión para que se ajuste a la plantilla recibida
+    document.write(aleatorio(10));
+
+    document.write("</div>");
+
+    //Función que obtiene un número en su argumento y devuelve el coseno de dicho número
+    function coseno(numero){
+        var cos = Math.cos(numero);
+        return "El coseno de "+numero+" es "+cos+"<br>";
+    }
+
+    //Función que recibe un array numérico en su argumento y devuelve el número mayor de dicho array
+    function mayor(numeros){
+        var max = Math.max(...numeros);
+        return "El número mayor de ("+numeros+") es: "+max+"<br>";
+    }
+
+    //Función que genera un número aleatorio y lo devuelve con la precisión indicada en su argumento
+    function aleatorio(precision){
+        let num = Math.random();
+        let ran = num.toPrecision(precision);
+        return "Ejemplo de número al azar: "+ran+"<br>";
+    }
+
+
+
+    //función para eliminar los tres primeros caracteres del nombre introducido
+    function acortarNombre(nombre){
+        //localizamos el primer espacio en el nombre completo
+        var primerEspacio = nombre.indexOf(" ");
+        //inicializamos una variable vacía "acortado"
+        var acortado = "";
+        //si el nombre introducido es demasiado corto pero válido,
+        //el programa sigue pero indica que no se puede acortar el nombre
+        if(nombre.length<=4){
+            acortado = "[Nombre demasiado corto para quitarle letras]";
+        //en caso de que el nombre de pila sea demasiado corto,
+        //acortamos un caracter adicional por el espacio entre nombre y apellido
+        } else if (primerEspacio<=3){
+            acortado = nombre.slice(4);
+        //si es un nombre normal, hacemos un corte después del tercer caracter
+        //y mostramos el resto
+        } else{
+            acortado = nombre.slice(3);
+        }
+        return acortado;
+    }
+
+
+    //función para calcular la edad en base a la fecha introducida y la actual
+    function edad(nacimiento){
+        //creamos una variable con la fecha de hoy. Esto funcionará independientemente
+        //de cuándo lo ejecutemos
+        var hoy = new Date();
+        //La edad va a ser el año de hoy menos el año de nacimiento   
+        var edad = hoy.getFullYear() - nacimiento.getFullYear();
+        //Si todavía no hemos pasado nuestro cumpleaños, descontamos un año
+        var mes = hoy.getMonth() - nacimiento.getMonth();
+        if(mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())){
+            edad--;
+        }
+        return edad;
+    }
+
+
+    //función para mostrar el día de la semana con texto en vez de con número
+    function diaSemana(nacimiento){
+        //creamos una variable con el día de la semana de la fecha
+        //pasada como parámetro (0-6) 
+        var semana = nacimiento.getDay();
+        //inicializamos la variable día vacía para luego añadirle el texto correspondiente
+        var dia = "";
+        switch(semana){
+            case 0:
+                dia= "Domingo";
+                break;
+            case 1:
+                dia= "Lunes";
+                break;
+            case 2:
+                dia= "Martes";
+                break;
+            case 3:
+                dia= "Miércoles";
+                break;
+            case 4:
+                dia= "Jueves";
+                break;
+            case 5:
+                dia= "Viernes";
+                break;
+            case 6:
+                dia= "Sábado";
+                break;
+        }
+        //devuelve un String con el día de la semana en texto
+        return dia;
+    }
+
+
+    //Función para abrir una ventana nueva
+    function abrirVentana(){
+        window.open("subventana.html", "subVentana", "resizable=0, width=1024, height=768");
+    }
+    
+
+    //Función que solicita el nombre y apellidos nada más cargar la página
+    function pedirNombre(){
+        //este bucle se ejecutará hasta que se introduzca un nombre válido
+        while(true){
+        //nos pide nombre y apellidos
+        var nombre = prompt("Escribe tu nombre y tus apellidos: ","");
+        //si no se introduce nada, recibimos un error y vuelve a solicitar el nombre
+        if(nombre === ""){
+            alert("Error. Este campo no puede estar vacío.");
+            //si no introducimos apellidos o no separamos el nombre de los apellidos,
+            //recibimos un error y vuelve a solicitar el nombre
+        } else if(nombre.indexOf(" ")<0){
+            alert("Error. Debes introducir al menos un apellido y separarlo con un espacio.");
+            //si no hay ningún error, el programa continúa
+        } else{
+            break;
+        }
+    }
+    //devuelve un String con el nombre introducido
+    return nombre;
+}
+
+
+    //función que nos pide la fecha de nacimiento
+    function pedirFechaNacimiento(){
+        //inicializamos la variable "nacimiento" vacía
+        var fechaNacimiento = "";
+        //creamos un objeto Date con la fecha de hoy
+        var hoy = new Date();
+        //el programa se ejecutará hasta que se establezca una fecha de nacimiento
+        while(fechaNacimiento===""){
+            //bucle para hacer una comprobación preliminar del día introducido
+            while(true){
+                var dia = prompt("Escribe tu DIA de nacimiento: ","");
+                //si el día introducido no está entre 1 y 31, nos da un error y lo vuelve a solicitar
+                if(dia>31 || dia <=0){
+                    alert("Error. Debe ser un número positivo entre 1 y 31");
+                    //si el día introducido es correcto, el programa continúa
+                } else{
+                    break;
+                    }   
+                }
+
+            //bucle para hacer una comprobación preliminar del mes introducido
+            while(true){
+                var mes = prompt("Escribe tu MES de nacimiento: ","");
+                //si el mes introducido no está entre 1 y 12, nos da error y lo vuelve a solicitar
+                if(mes>12 || mes<=0){
+                    alert("Error. Debe ser un número positivo entre 1 y 12");
+                    //si el mes introducido es correcto, el programa continúa
+                } else{
+                    break;
+                }
+            }
+
+            //bucle para hacer una comprobación preliminar del año de nacimiento
+            while(true){
+                var year = prompt("Escribe tu AÑO de nacimiento: ","");
+                //si se introduce un número negativo (o el 0, que no existe como año), 
+                //nos da error y lo vuelve a solicitar
+                if(year<=0){
+                    alert("Error. No contamos a la gente nacida hace más de 2000 años");
+                    //si el año introducido es superior al año actual, nos da error y lo vuelve a solicitar
+                } else if(year > hoy.getFullYear()){
+                    alert("Error. No se puede nacer en el futuro.");
+                    //si el año introducido es correcto, el programa continúa
+                } else{
+                    break;
+                }
+            }
+            
+            //comprobamos que no hemos indicado más días que puede tener el mes en introducido
+            //comprobamos los meses con 31 días
+            if((mes==1||mes==3||mes==5||mes==7||mes==8||mes==10||mes==12) && dia <= 31 ){
+                //si es posible ese día del mes, se crea un nuevo objeto Date.
+                fechaNacimiento = new Date(year, mes-1, dia);
+            //comprobamos los meses con 30 días
+            } else if((mes==4||mes==6||mes==9||mes==11) && dia <=30){
+                //si es posible ese día, se crea un nuevo objeto Date
+                fechaNacimiento = new Date(year, mes-1, dia);
+            //comprobamos Febrero. Hacemos uso de una función que comprueba si el año es bisiesto.
+            //si el año es bisiesto, Febrero puede tener un máximo de 29 días
+            } else if((mes==2 && bisiesto(year)) && dia <=29){
+                //si es posible ese día, se crea un nuevo objeto Date
+                fechaNacimiento = new Date(year, mes-1, dia);
+            //si el año no es bisiesto, Febrero puede tener un máximo de 28 días
+            } else if((mes==2 && !bisiesto(year)) && dia <=28){
+                //si es posible ese día, se crea un nuevo objeto Date
+                fechaNacimiento = new Date(year, mes-1, dia);
+            //si no es posible el día introducido para ese mes, nos da error y lo vuelve a solicitar
+            } else{
+                alert("Fecha introducida incorrecta. Vuelve a intentarlo");
+            }  
+        }
+        //Devuelve el objeto Date "fechaNacimiento"
+        return fechaNacimiento;
+    }
+
+
+    //función que comprueba que un año es bisiesto
+    function bisiesto(year){
+        if ((0 == year % 4) && (0 != year % 100) || (0 == year % 400)) {
+        //si el año es bisiesto, devuelve true
+        return true;
+    } else {
+        //si el año no es bisiesto, devuelve false
+        return false;
+    }
+}
+
+    </script>
+
+    <!--Contenedor para los botones-->
+    <div id="botones">
+        <!--Botón para abrir una nueva ventana-->
+        <button type="button" class="boton1" onclick="abrirVentana()">Abrir ventana</button>
+        <button type="button" class="boton1" onclick="window.location.reload();">Volver a empezar</button> 
+    </div>
+</body>
+</html>

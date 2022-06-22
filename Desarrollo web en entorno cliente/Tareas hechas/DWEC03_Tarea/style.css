@@ -1,0 +1,50 @@
+body{
+    background-color:aqua;
+}
+
+h1{
+    text-align:center;
+}
+
+iframe {
+    display:block;
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+div{
+    margin-top:20px;
+    text-align:justify;
+    margin-left:30%;
+}
+
+.boton1, .boton2{
+    display: inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid black;
+    border-radius:2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    background-color:yellow;
+    color:red;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    text-align:center;
+    transition: all 0.2s;
+    }
+    
+    .boton1:hover, .boton2:hover{
+    border-color: white;
+    }
+
+.boton2{
+    text-align:center;
+    margin-left:43%;
+}
+
+.textoSub{
+    font-weight: bold;
+}
