@@ -1,0 +1,31 @@
+--------JS--------------
+
+function mostrarImagen(){
+    $.ajax({
+        method: "POST",
+        url: "funciones/FImprimir.php",
+        data: {functionName:"mostrarImagen"}
+    })
+    .done(function(response){
+        var result = JSON.parse(response);
+        var img = document.createElement("img");
+        img.setAttribute("src", result.imagen);
+        console.log(result.imagen)
+        document.querySelector("#imagen").appendChild(img);
+    })
+}
+
+
+------------PHP------------------
+
+function mostrarImagen(){
+    require "conexionBD.php";
+    $conexion = conexion();
+
+    $sql = "SELECT CONVERT(imagen USING utf8) as imagen FROM ajustes";
+    
+    $res = $conexion->query($sql);
+    $row = $res->fetch_array(MYSQLI_ASSOC);
+    echo json_encode($row);
+    $conexion->close();
+}

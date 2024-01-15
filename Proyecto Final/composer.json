@@ -1,0 +1,17 @@
+{
+    "name": "quality/inventory",
+    "require": {
+        "phpmailer/phpmailer": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Quality\\Inventory\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ChristopherMccaffery",
+            "email": "andresvera@qualityproducciones.es"
+        }
+    ]
+}

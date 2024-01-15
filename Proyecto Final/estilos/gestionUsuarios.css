@@ -1,0 +1,146 @@
+
+body{
+    overflow-y: scroll;
+}
+.columnas{
+    margin:auto;
+    display:flex;
+    justify-content: space-evenly;
+    flex-direction:row;
+    flex-wrap: wrap;
+    
+}
+
+.columnaIzquierda, .columnaDerecha{
+    margin-top:50px;
+    flex-shrink: 0;
+    color: black;
+}
+
+.columnaIzquierda{
+    color: black;
+    top:0;
+    width:30%;
+}
+
+.columnaDerecha{
+    flex-grow:1;
+    padding-left:5%;
+    padding-right:5%;
+}
+
+
+table{
+    width:100%;
+}
+
+tr{
+    background-color:white;
+    font-size:15px;
+}
+
+td{
+    height:35px;
+}
+
+#contenedorFormularioRegistro{
+    position:sticky;
+    top:200px;
+    display:flex;
+    flex-shrink: 0;
+    z-index: 5;
+    flex-direction: column;
+    width:50%;
+    margin:auto;
+    padding:25px;
+    border-radius:30px;
+    background-color:white;
+    padding-bottom:50px;
+}
+
+#contenedorFormularioRegistro input, #contenedorFormularioRegistro select{
+    width:100%;
+    margin-top:5px;
+    margin-bottom:10px;
+    border:1px solid #248CF3;
+    border-radius: 10px;
+    height:25px;
+}
+
+#botonAñadirMod{
+    margin-top:10px;
+    color:white;
+    background-color:#9C0707;
+    height:30px;
+    width:fit-content;
+    border-radius: 10px;
+    border:none;
+    text-align:center;
+    padding-right:25px;
+    box-shadow: 5px 5px 5px black ;
+}
+
+#botonAñadirMod:hover{
+    cursor:pointer;
+}
+
+#botonAñadirMod:active{
+    box-shadow: 2px 2px 2px black;
+    transform:translate(3px, 3px);
+}
+
+#containerTablaUsuarios{
+    width:100%;
+}
+
+#tablaUsuarios{
+    font-size:15px;
+    margin:auto;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+#tablaUsuarios tr:nth-child(even){
+    background-color:#CBD5E1;
+}
+
+#cabeceraTablaUsuarios{
+    font-size:20px;
+    height: 40px;
+}
+
+#tablaUsuarios button{
+    margin-top:5px;
+}
+
+.botonModificar{
+    color:white;
+    background-color:#0a079c;
+    height:30px;
+    width:fit-content;
+    border-radius: 10px;
+    border:none;
+    text-align:center;
+    margin:auto;
+}
+
+.botonDeshabilitar{
+    margin: auto;
+    border: none;
+	background-color: #9c0707;
+	width: 100px;
+	height: 30px;
+	border-radius: 10px;
+	color: white;
+	font-size: 15px;
+	margin-top: 30px;
+}
+
+td:has(.botonDeshabilitar){
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border:none;
+}
+

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        .rojo{
+            background-color:red;
+        }
+        .amarillo{
+            background-color:yellow;
+        }
+        .verde{
+            background-color:green;
+        }
+        .aqua{
+            background-color:aqua;
+        }
+        .gris{
+            background-color:gray;
+        }
+        .negro{
+            background-color:black;
+        }
+        .azul{
+            background-color:blue;
+        }
+        .caja{
+            width:100px;
+            height:100px;
+        }
+        .contenedor{
+            display:flex;
+            justify-content:space-between;
+            flex-wrap:wrap-reverse;
+        }
+        .contenedor2{
+            border:2px solid black;
+            width:90%;
+            margin:auto;
+            
+            display:flex;
+            justify-content: space-around;
+            flex-direction:row;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+        }
+
+        .columnaIzquierda, .columnaDerecha{
+            flex-shrink: 0;
+            margin-top:50px;
+            border:2px solid red;
+        }
+
+        .columnaDerecha{
+            background-color:blue;
+        }
+
+        .columnaIzquierda{
+            top:0;
+            background-color:yellow;
+        }
+        .cabecera{
+            background-color:aqua;
+            top:0;
+        }
+        th, td{
+            width:200px;
+            font-size: 45px;
+        }
+        #formulario{
+            display:flex;
+            flex-direction: column;
+        }
+        .navbar{
+            position:sticky;
+            top:0;
+            width: 100%!important;
+            display:flex;
+            background-color: rgb(255, 0, 0);
+        }
+        
+        button, a{
+            height:30px;
+            width:125px;
+            border-radius: 25px;
+            background-color:white;
+            text-align:center;
+            text-decoration:none;
+        }
+
+
+        .botones{
+            display:flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap:wrap;
+            margin:auto;
+        }
+
+        #navBarImg{
+            height:150px;
+	        width:250px;
+        }
+
+        table{
+            width:100%;
+        }
+
+        #formulario{
+            position:sticky;
+            top:250px;
+            width:100%;
+            display:flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+        }
+
+        .butonAbajo{
+            width:30px;
+            height:30px;
+            border-radius: 0px;
+        }
+
+        a:hover{
+            background-color:green;
+        }
+
+        a:active{
+            background-color:yellow;
+        }
+
+        #formulario{
+            width:30%;
+        }
+
+    </style>
+</head>
+<body>
+    <form onsubmit="dsa(this)" id="formulario">
+        <input type="text" id="input1">
+        <input type="text" id="input2">
+        <input type="text" id="input3">
+        <select name="" id="">
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+            <option value="">4</option>
+        </select>
+        <input type="text" list="cars" />
+        <datalist id="cars">
+
+        </datalist>
+        <input type="submit"value="Enviar" id="enviar">
+    </form>
+    <script>
+        document.getElementById("cars").innerHTML = `            <option>Volvo</option>
+            <option>Saab</option>
+            <option>Mercedes</option>
+            <option>Audi</option>
+            <option>Aud2i</option>
+            <option>Audi5</option>
+            <option>Audi6</option>
+            <option>Audi7</option>
+            <option>OAudi6</option>
+            <option>Audi8</option>
+            <option>OAudi7</option>
+            <option>OAudi8</option>
+            <option>Audi9</option>
+            <option>Audi0</option>
+            <option>PAud2i</option>
+            <option>PAudi3</option>
+            <option>PAudi4</option>
+            <option>PAudi5</option>
+            <option>PAudi9</option>
+            <option>Audi3</option>
+            <option>Audi4</option>
+            <option>PAudi6</option>
+            <option>PAudi7</option>
+            <option>PAudi8</option>
+            <option>OAud2i</option>
+            <option>OAudi0</option>
+            <option>OAudi3</option>
+            <option>OAudi4</option>
+            <option>OAudi5</option>
+            <option>OAudi9</option>
+            <option>OAudi0</option>`;
+        function dsa(formula){
+            console.log(formula.getElementById("cars").value);
+        }
+        document.getElementById("enviar").addEventListener("click", (event)=>{
+            dsa();
+            event.preventDefault();
+        })
+        var verdadero = true;
+        console.log("Estado inicial: "+verdadero);
+        document.getElementById("formulario").addEventListener("focusin", ()=>{
+            document.body.style.backgroundColor = "red";
+            verdadero = false;
+            console.log(verdadero);
+        })
+        document.getElementById("formulario").addEventListener("focusout", ()=>{
+            document.body.style.backgroundColor = "blue";
+            verdadero = true;
+            console.log(verdadero);
+        })
+    </script>
+</body>
+    </div>
+</html>

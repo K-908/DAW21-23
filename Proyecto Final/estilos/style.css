@@ -1,0 +1,204 @@
+/**************************************
+*************RESET CSS*****************
+**************************************/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	border:none;
+}
+/**************************************
+*************RESET CSS*****************
+**************************************/
+
+
+/**************************************
+***************NAVBAR******************
+**************************************/
+
+#navBar {
+	width: 100%;
+	margin:auto;
+	top: 0;
+	z-index: 99;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	position: sticky;
+	border-bottom: 2px solid rgb(122, 121, 121);
+}
+
+#imgLogo {
+	height: 30.532px;
+	width: 118px;
+	flex-shrink: 0;
+	margin-top:auto;
+	margin-bottom:auto;
+	margin-left:40px;
+}
+
+#menuPrincipalFilaBotones {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin: auto;
+	padding-bottom:10px;
+	text-decoration: none;
+}
+
+#menuPrincipalFilaBotones a{
+	text-decoration: none;
+}
+
+.botonMenuPrincipal {
+	border: none;
+	width: 130px;
+	height: 40px;
+	border-radius: 10px;
+	color: white;
+	font-size: 15px;
+	margin-top: 30px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding-top: 5px;
+}
+#aSalirMenuPrincipal{
+	display: flex;
+	justify-content: center;
+	margin-top: auto;
+	margin-bottom:auto;
+	margin-right:20px;
+	text-decoration: none;
+}
+#botonSalir{
+    background-color: black;
+}
+
+.botonMenuPrincipal:hover {
+	background-color:#9c07075f;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+
+
+.textoBotonMenuPrincipal {
+	color: white;
+	display: flex;
+	justify-content: center;
+	padding-top: 10px;
+	font-size: 15px;
+}
+
+.seleccionado{
+	background-color:#9C0707;
+	border-radius: 10px;
+}
+
+.seleccionado:hover{
+	background-color:#9C0707;
+}
+
+/**************************************
+***************NAVBAR******************
+**************************************/
+
+td{
+	border:2px solid #CBD5E1;
+}
+
+
+
+
+@font-face{
+	font-family: Montserrat;
+	src:url(../Montserrat-Regular.ttf);
+}
+
+body{
+	font-family:Montserrat;
+}
+
+
+.botonPaginasActivo{
+    cursor:pointer;
+    color:white;
+}
+
+.botonPaginasInactivo{
+    cursor:default;
+    color:#CBD5E1;
+}
+
+#contenedorBotones{
+    width:20%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:50px;
+    padding-bottom:50px;
+    margin:auto;
+}
+
+#cambiarAjustes{
+	margin-top:10px;
+    background-color:#9C0707;
+    border-radius: 10px;
+	height: 60px;
+    border:none;
+    text-align:center;
+}
+
+td:first-of-type{
+	border-left:0px;
+}
+
+td:last-of-type{
+	border-right:0px;
+}

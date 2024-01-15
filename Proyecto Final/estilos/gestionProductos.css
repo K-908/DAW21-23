@@ -1,0 +1,246 @@
+a{
+    text-decoration: none;
+
+}
+a:hover{
+    text-decoration: none;
+}
+input[type="text"], input[type="number"], input[type="date"]{
+    height:25px;
+    border-radius: 10px;
+}
+input,label {
+    display: block;
+}
+
+
+.columnas{
+    margin:auto;
+    display:flex;
+    justify-content: space-around;
+    flex-direction:row;
+    flex-wrap: wrap;
+}
+
+.columnaIzquierda, .columnaDerecha{
+    margin-top:50px;
+    color: black;
+}
+
+.fila{
+    background-color:white;
+    font-size:15px;
+}
+
+.columnaIzquierda{
+    top:0;
+    width:30%;
+}
+
+#formularioAltaProducto{
+    display:flex;
+    flex-direction: column;
+}
+
+#botonesFormulario{
+    display:flex;
+    flex-direction: column;
+}
+
+.botonFormulario{
+    margin-top:10px;
+    background-color:#9C0707;
+    height:30px;
+    width:fit-content;
+    border-radius: 20px;
+    border:none;
+    text-align:center;
+    padding-right:25px;
+    box-shadow: 5px 5px 5px black ;
+}
+
+#botonesFormulario button{
+    border: none;
+	background-color: #9c0707;	
+	height: 40px;
+	border-radius: 10px;
+	color: white;
+	font-size: 15px;
+	margin-top: 30px;
+}
+
+#anadirColumna{
+    width: 150px;
+}
+
+#añadirProd{
+    width: 200px;
+}
+
+.botonFormulario:hover{
+    cursor:pointer;
+}
+
+.botonFormulario:active{
+    box-shadow: 2px 2px 2px black;
+    transform:translate(3px, 3px);
+}
+
+#contenedorFormularioRegistroProducto{
+    display:flex;
+    z-index: 5;
+    flex-direction: column;
+    width:50%;
+    margin:auto;
+    padding:25px;
+    border-radius:30px;
+    background-color:white;
+    padding-bottom:50px;
+}
+
+#contenedorFormularioRegistroProducto input{
+    width:100%;
+    margin-top:5px;
+    margin-bottom:10px;
+    border:1px solid #248CF3;
+}
+
+
+#contenedorTabla{
+    overflow:scroll;
+    height:800px;
+}
+
+#tablaProductos{
+    font-size:25px;
+    margin:auto;
+    text-align: left;
+}
+
+#tablaProductos button{
+    margin:auto;
+    margin-top:5px;
+}
+
+#tablaProductos tr:nth-child(even){
+    background-color:#CBD5E1;
+}
+
+#tablaProductos a{
+    text-decoration: none;
+    color: #248CF3;
+}
+td{
+    text-align:center;
+}
+td button{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.botonDeshabilitar{
+    border: none;
+	background-color: #9c0707;
+	width: 30px;
+	height: 30px;
+	border-radius: 10px;
+	color: white;
+	font-size: 15px;
+	margin-top: 30px;
+    cursor:pointer;
+}
+
+.botonHabilitar{
+    border: none;
+	background-color: rgb(67, 156, 7);
+	width: 30px;
+	height: 30px;
+	border-radius: 10px;
+	color: white;
+	font-size: 15px;
+	margin-top: 30px;
+    cursor:pointer;
+}
+
+.botonModificar{
+    border: none;
+	background-color: #9c0707;
+	border-radius: 10px;
+	color: white;
+	font-size: 15px;
+	margin-top: 30px;
+    cursor:pointer;
+    padding: 5px 10px 5px;
+}
+
+.botonModificar:disabled{
+    border: none;
+	background-color: #828282;
+	border-radius: 10px;
+	color: white;
+	font-size: 15px;
+	margin-top: 30px;
+    padding: 5px 10px 5px;
+    cursor:not-allowed;
+}
+
+#stickyStuff{
+    position:sticky;
+    top:0;
+    margin-bottom:0;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#stickyStuff label{
+    margin-left:15px;
+}
+
+#stickyStuff input{
+    border: 1px solid #248CF3;
+}
+
+#cabeceraTablaProductos{
+    text-align: left;
+    position: sticky;
+    top: 0;
+    margin: 5px;
+    font-size:20px;
+    height: 50px;
+}
+
+#tablaProductos th{
+    padding-right: 15px;
+}
+
+#tablaProductos input{
+    margin:auto;
+    margin-bottom:5px;
+    width:50px;
+}
+
+.linkProducto{
+    font-size:15px;
+}
+
+
+#contenedorTabla::-webkit-scrollbar {
+    display: none;
+}
+
+#contenedorTabla {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+td{
+    max-width:120px;
+    overflow: hidden;
+    text-overflow: clip; 
+}
+
+td{
+    width: 80px;
+}

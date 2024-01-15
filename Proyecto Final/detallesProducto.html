@@ -1,0 +1,40 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/detallesProducto.css">
+    <link id="linkFavicon" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="funciones/jquery.js"></script>
+    <script src="funciones/FDetallesProducto.js"></script>
+    <script src="funciones/funciones.js"></script>
+    <script src="https://kit.fontawesome.com/2a4e3b0292.js" crossorigin="anonymous"></script>
+</head>
+<body onload="createMenu()">
+    <div id="navBar">
+        <img id="imgLogo" alt="">
+        <div id="menu-container"></div>  
+      </div>
+    <div class="columnas">
+        <div class="columnaIzquierda">
+            <div id="contenedorDetallesProducto"></div>  
+        </div>
+        <div class="columnaDerecha">
+            <div id="contenedorTabla">
+                <table id="tablaHistorial" class="table">
+                    <tr id="filaCabecera">
+                        <th class="cabecera">Usuario</th>
+                        <th class="cabecera">Prestamista</th>
+                        <th class="cabecera">Cantidad</th>
+                        <th class="cabecera">Fecha de préstamo</th>
+                        <th class="cabecera">Fecha de devolución</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    
+    
+</body>
+</html>

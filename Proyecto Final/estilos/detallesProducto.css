@@ -1,0 +1,111 @@
+input[type="text"], input[type="number"], input[type="date"]{
+    height:25px;
+    border-radius: 10px;
+    border:1px solid blue;
+}
+input,label {
+    display: block;
+}
+
+table tr td{
+    border:2px solid black;
+    height:30px;
+}
+#filaCabecera{
+    height:30px;
+}
+
+#filaCabecera th{
+    border:2px solid black;
+}
+
+.columnas{
+    margin:auto;
+    display:flex;
+    justify-content: space-around;
+    flex-direction:row;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.columnaIzquierda, .columnaDerecha{
+    margin-top:50px;
+    flex-shrink: 0;
+}
+
+.fila{
+    background-color:white;
+    font-size:15px;
+}
+
+.columnaIzquierda{
+    top:0;
+    width:30%;
+}
+
+#contenedorDetallesProducto{
+    width:80%;
+    border-radius:30px;
+    padding-top: 20px;
+    color:black;
+    background-color:white;
+    padding-bottom:50px;
+}
+
+#contenedorDetallesProducto label{
+    margin-top:10px;
+}
+
+#contenedorDetallesProducto button{
+    display:block;
+    border: none;
+	height: 40px;
+	border-radius: 10px;
+	color: white;
+	font-size: 15px;
+	margin-top: 30px;
+}
+
+#formularioDetallesProducto{
+    width:70%;
+    margin:auto;
+    padding-left:20%;
+}
+
+#botonColumnas{
+    background-color: blue;
+}
+
+#botonGuardar{
+    background-color: green;
+}
+
+#tablaHistorial{
+    font-size:25px;
+    margin:auto;
+    text-align: left;
+}
+
+#tablaHistorial button{
+    margin:auto;
+    margin-top:5px;
+}
+
+#tablaHistorial tr{
+    font-size: 20px;
+}
+
+#tablaHistorial tr:nth-child(even){
+    background-color:#acacac;
+}
+
+#tablaHistorial th{
+    padding-left:5px;
+    text-align:center;
+}
+
+
+
+.botonBorrar{
+    color:red;
+}

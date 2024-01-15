@@ -1,0 +1,143 @@
+#contenedorEncargos{
+    width:100%;
+    margin:auto;
+    margin-top:50px;
+    
+}
+
+.divTable{
+    margin:auto;
+    margin-bottom:15px;
+}
+
+.cabecera{
+    font-size:20px;
+}
+
+
+
+.cabecera td{
+    padding-left:20px;
+    padding-top:10px;
+}
+
+table input{
+    margin-left:30%;
+}
+
+#tablaDevolucionesContainer{
+    width:50%;
+    margin-left:50px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+}
+
+#tablaDevolucionesContainer  label{
+    color: black;
+font-size: 15px;
+font-family: Montserrat;
+font-weight: 400;
+word-wrap: break-word;
+}
+
+#tablaDevolucionesContainer .inputAzul{
+    height:30px;
+    border-radius: 10px;
+    border:1px solid blue;
+}
+
+#botonReset, .divTable button{
+    color: white;
+    font-size: 14px;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: 21px;
+    word-wrap: break-word;
+    background-color:#9C0707;
+    height:30px;
+    border-radius: 10px;
+    align-self: flex-end;
+}
+
+.divTable{
+    background-color:white;
+    width:90%;
+    margin:auto;
+    margin-bottom:50px;
+}
+
+.divTable tr:nth-child(odd){
+    background-color:#CBD5E1;
+}
+
+td:has(.botonDevolver){
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border:none;
+}
+
+.botonDevolver{
+    margin-top:15px;
+    margin-bottom:15px;
+    height:90px;
+    width:120px;
+}
+
+td:has(textarea){
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border:none;
+    padding-bottom:15px;
+}
+
+textarea{
+    width:70%;
+    height:50px;
+}
+
+.cabecera{
+    text-align:left;
+    height:50px;
+}
+
+.primeraCabecera{
+    color: black;
+    font-size: 17px;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: 15.60px;
+    word-wrap: break-word;
+    background-color:#B9B9B9;
+    height:50px;
+    
+}
+
+td{
+    color: black;
+}
+
+.primeraCabecera th{
+    padding-left:15px;
+    align-items:center;
+    padding-top:10px;
+}
+
+th:first-child, td:first-child{
+    max-width:150px;
+    min-width:150px;
+    width:150px;
+    align-items:center;
+}
+
+.celdaBotonesCabecera{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

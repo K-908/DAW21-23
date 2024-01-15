@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/devoluciones.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+    <script src="funciones/jquery.js"></script>
+    <script src="funciones/funciones.js"></script>
+    <script src="funciones/FDevoluciones.js"></script>
+    <link id="linkFavicon" rel="icon" type="image/x-icon">
+    <title>Devoluciones</title>
+</head>
+<body onload="createMenu()">
+    <div id="navBar">
+        <img id="imgLogo" alt="">
+        <div id="menu-container"></div>  
+      </div>
+    <!--Tabla con los prestamos-->
+    <div id="tablaDevolucionesContainer">
+        <div id="divInputCorreo">
+            <label for="inputCorreo">Filtrar por correo</label>
+            <select class="inputAzul" type="text" name="inputCorreo" id="inputCorreo" onchange="filtrarTablas()">
+                <option value="" default></option>
+            </select>
+        </div>
+        <div id="divInputFecha">
+            <label for="inputFecha">Filtrar por fecha</label>
+            <input class="inputAzul" type="date" name="inputFecha" id="inputFechaHTML" oninput="filtrarTablas()">
+        </div>
+        <div id="divInputCodProducto">
+            <label for="inputProducto" >Código de producto</label>
+            <input class="inputAzul" type="text" id="inputProducto" onkeyup="filtrarTablas()">
+        </div>  
+        <input id="botonReset" type="reset" onclick="borrarDatos()"/>
+    </div>
+    <div id="contenedorEncargos"></div>
+
+</body>
+</html>

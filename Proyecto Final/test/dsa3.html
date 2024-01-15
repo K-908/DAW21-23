@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rojo{
+            background-color:red;
+        }
+        .amarillo{
+            background-color:yellow;
+        }
+        .verde{
+            background-color:green;
+        }
+        .aqua{
+            background-color:aqua;
+        }
+        .gris{
+            background-color:gray;
+        }
+        .negro{
+            background-color:black;
+        }
+        .azul{
+            background-color:blue;
+        }
+        .caja{
+            width:100px;
+            height:100px;
+        }
+        .contenedor{
+            display:flex;
+            justify-content:space-between;
+            flex-wrap:wrap-reverse;
+        }
+        .contenedor2{
+            border:2px solid black;
+            width:90%;
+            margin:auto;
+            
+            display:flex;
+            justify-content: space-around;
+            flex-direction:row;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+        }
+
+        .columnaIzquierda, .columnaDerecha{
+            flex-shrink: 0;
+            margin-top:50px;
+            border:2px solid red;
+        }
+
+        .columnaDerecha{
+            background-color:blue;
+        }
+
+        .columnaIzquierda{
+            top:0;
+            background-color:yellow;
+        }
+        .cabecera{
+            background-color:aqua;
+            top:0;
+        }
+        th, td{
+            width:200px;
+            font-size: 45px;
+        }
+        #formulario{
+            display:flex;
+            flex-direction: column;
+        }
+        .navbar{
+            position:sticky;
+            top:0;
+            width: 100%!important;
+            display:flex;
+            background-color: rgb(255, 0, 0);
+        }
+        
+        a:link{
+            height:30px;
+            width:125px;
+            border-radius: 25px;
+            background-color:white;
+            text-align:center;
+            text-decoration:none;
+        }
+
+
+        .botones{
+            display:flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap:wrap;
+            margin:auto;
+        }
+
+        #navBarImg{
+            height:150px;
+	        width:250px;
+        }
+
+        table{
+            width:100%;
+        }
+
+        #formulario{
+            position:sticky;
+            top:250px;
+            width:100%;
+            display:flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+        }
+
+        .seleccionado{
+            background-color:yellow;
+        }
+
+        .butonAbajo{
+            width:30px;
+            height:30px;
+            border-radius: 0px;
+        }
+
+        a:active{
+            background-color:yellow;
+            color:red;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="https://i.imgur.com/Lmv4eAn.png" alt="" id="navBarImg">
+        <div class="botones">
+            <a href="test.html">Test</a>
+            <a href="dsa2.html">Dsa2</a>
+            <a href="dsa3.html">Dsa3</a>
+            <a href="dsa.html">Dsa</a>
+        </div>
+    </div>
+    <h1>DSADSADSA3333333333</h1>
+    
+    <script>
+    // Get the full URL
+    var fullURL = window.location.href;
+    // Find the last occurrence of '/' in the URL
+    var lastSlashIndex = fullURL.lastIndexOf('/');
+    // Extract the file name using substring
+    var fileName = fullURL.substring(lastSlashIndex + 1);
+        var botones = document.querySelector(".botones");
+        for(const boton of botones.children){
+            if(boton.getAttribute("href")==fileName){
+                boton.classList.add("seleccionado");
+            }
+        }
+    </script>
+</body>
+</html>

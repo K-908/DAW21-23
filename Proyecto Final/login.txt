@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="estilos/bootstrap.css">
+    <link rel="stylesheet" href="estilos/style.css">
+    <script src="funciones/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+</head>
+<body>
+    <h2>Inicia sesión para acceder</h2>
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3 formulario">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-50">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card-body p-5">
+              <form id="formularioLogin">
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example1cg">Nombre</label>
+                    <input type="text" id="formuser" name="correo" class="form-control form-control-lg inputText" required/>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example4cg">Contraseña</label>
+                    <input type="password" id="formpass" name="clave" class="form-control form-control-lg inputText"required />
+                </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                </form>
+                <button class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" onclick="enviarFormulario()">Iniciar sesión</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="prueba" id="prueba"></div>
+      <script>
+       
+        var divPrueba = document.getElementById("prueba");
+        divPrueba.innerHTML = rol;
+        
+        function enviarFormulario(){
+          var pass = sha256(document.getElementById("formpass").value);
+          $.ajax({
+            method: "POST",
+            url: "funciones/FLogin.php",
+            data: {user: $("#formuser").val(), password : pass}
+        })
+        .done(function(response){
+          var datos = response.split(";")
+          sessionStorage.setItem("usuario", datos[0]);
+          sessionStorage.setItem("rol", datos[1]);
+          $("#prueba").html("Variables de sesión: "+sessionStorage.getItem('usuario')+"---"+sessionStorage.getItem('rol'));
+        });
+        }
+        
+
+        function sha256(message){
+        const hash = CryptoJS.SHA256(message);
+        return hash.toString(CryptoJS.enc.Hex);
+        }
+
+
+  </script>
+  
+</body>
+</html>

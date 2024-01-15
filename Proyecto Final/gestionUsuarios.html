@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gestion ususarios</title>
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/gestionUsuarios.css">
+
+    <link id="linkFavicon" rel="icon" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+    <script src="funciones/jquery.js"></script>
+    <script src="funciones/funciones.js"></script>
+    <script src="funciones/FGestionUsuarios.js"></script>
+</head>
+<body onload="createMenu()">
+    <div id="navBar">
+        <img id="imgLogo" alt="">
+        <div id="menu-container"></div>  
+      </div>
+    <div class="columnas">
+        <div class="columnaIzquierda">
+            <div class="mask d-flex align-items-center h-100 gradient-custom-3 formulario" id="contenedorFormularioRegistro" onload="crearFormUserReg()"></div>
+        </div>
+        <div class="columnaDerecha">
+            <div id="containerTablaUsuarios"></div>
+        </div>
+    </div>
+    
+    <div id="respuestas"></div>
+    
+</body>
+</html>

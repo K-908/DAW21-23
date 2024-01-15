@@ -1,0 +1,48 @@
+
+#tablaProductosIndex{
+    width:100%;
+    background-color:white;
+}
+#tablaProductosIndex tr:nth-child(even){
+    background-color:#CBD5E1;
+}
+
+.botonHabilitado{
+    color:white;
+    cursor:pointer;
+}
+
+#botonDeshabilitado{
+    color:gray;
+    cursor:none;
+}
+
+
+
+#botonDescargarCSV{
+    border: none;
+	background-color: #9c0707;
+	width: 130px;
+	height: 40px;
+	border-radius: 10px;
+	color: white;
+	font-size: 15px;
+}
+
+.subBody{
+    width:95%;
+    margin:auto;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:20px;
+    margin-top:15px;
+}
+
+#contenedorTabla{
+    width:95%;
+    margin:auto;
+    text-align:center;
+}
+

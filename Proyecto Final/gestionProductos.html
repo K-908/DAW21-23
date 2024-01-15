@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>gestión productos</title>
+    <link rel="stylesheet" href="estilos/style.css" />
+    <link rel="stylesheet" href="estilos/gestionProductos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+    <script src="funciones/lector.js"></script>
+    <script src="funciones/jquery.js"></script>
+    <script src="funciones/funciones.js"></script>
+    <script src="funciones/FGestionProductos.js"></script>
+    <script src="https://kit.fontawesome.com/2a4e3b0292.js" crossorigin="anonymous"></script>
+    <link id="linkFavicon" rel="icon" type="image/x-icon" />
+  </head>
+  <body onload="createMenu()">
+    <!-- Formulario para dar de alta productos-->
+    <div id="navBar">
+      <img id="imgLogo" alt=""/>
+    </div>
+    
+    <div id="contenedorCamara">
+      <div id="overlayCamara" class="fullScreenOverlay">
+        <div id="qr-reader"></div>
+        <button id="pararCamara" onclick="stopButton()">Parar cámara</button>
+      </div>
+      <button id="mostrarEscaner" onclick="startButton()">Usar cámara</button>
+    </div>
+
+
+    <div class="columnas">
+      <div class="columnaIzquierda">
+          <div class="" id="contenedorFormularioRegistroProducto" onload="crearFormProd()"></div>
+      </div>
+      <div class="columnaDerecha">
+          <div id="stickyStuff">
+            <input type="text" name="barras" placeholder="Escanea un código de barras" id="inputBuscarProducto"/>
+            <label for="check">Mostrar productos deshabilitados</label>
+            <input
+              type="checkbox"
+              name="check"
+              id="checkbox"
+            />
+          </div>
+          <div id="contenedorTabla"></div>
+          <div id="contenedorBotonesIndex">
+            <div id="contenedorBotones">
+              <div id="textoBotones">Página x de y</div>
+              <i id="botonPrimera" class="fa-solid fa-angles-left botonPaginas" onclick="primeraPagina()"></i>
+              <i id="botonAnterior" class="fa-solid fa-chevron-left botonPaginas" onclick="anteriorPagina()"></i>
+              <i id="botonSiguiente" class="fa-solid fa-chevron-right botonPaginas" onclick="siguientePagina()"></i>
+              <i id="botonUltima" class="fa-solid fa-angles-right botonPaginas" onclick="ultimaPagina()"></i>
+            </div>
+          </div>
+      </div>
+    </div>
+    <!--
+    <button onclick="addMuchosProductos()">Añadir productos</button>
+    -->
+  </body>
+</html>
+
+

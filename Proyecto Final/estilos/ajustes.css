@@ -1,0 +1,45 @@
+#divFormAjustes{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;;
+    width:50%;
+    margin:auto;
+    margin-top:50px;
+}
+
+.divElementosForm{
+    display:flex;
+    flex-direction: column;
+    margin:auto;
+    margin-bottom:15px;
+}
+
+input[type="text"], input[type="number"], input[type="color"], input[type="password"]{
+    width:50%;
+    height:25px;
+    border-radius: 10px;
+    border:1px solid blue;
+}
+
+form{
+    width:60%;
+    margin:auto;
+    align-items: center;
+    padding-left:30%;
+}
+
+.labelFormAjustes{
+    margin-bottom:10px;
+}
+
+#botonCambiarAjustes{
+    display:block;
+    border: none;
+	height: 40px;
+	border-radius: 10px;
+	color: white;
+	font-size: 15px;
+	margin-top: 10px;
+    background-color:#9C0707;
+}

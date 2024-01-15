@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="funciones/funciones.js"></script>
+    <link rel="stylesheet" href="estilos/bootstrap.css">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+</head>
+    <body onload="createMenu()">
+        <div id="menu-container"></div>
+        <div id="qr-reader"></div>
+        <button id="startButton" onclick="startButton()">Start</button>
+        <button id="stopButton" onclick="stopButton()">Stop</button>
+    </body>
+
+
+    <script>
+        const generateRandomString = function(){
+            return Math.random().toString(20).substr(2, 15)
+        }
+        for(var i=0;i<10;i++){
+            console.log(generateRandomString());
+        }
+
+        // const html5QrCode = new Html5Qrcode(/* element id */ "qr-reader");
+        // const config = { fps: 10, qrbox: { width: 500, height: 500 } };
+        // const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+        //     console.log(decodedText+"-----"+decodedResult);
+        //     stopButton();
+        // };
+
+
+        // function startButton(){
+        //     html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+        // }
+
+
+        // function stopButton(){
+        //     html5QrCode.stop().then((ignore) => {
+        //         // QR Code scanning is stopped.
+        //     }).catch((err) => {
+        //         // Stop failed, handle it.
+        //     });
+        // }
+    </script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/prestamos.css">
+    <script src="funciones/lector.js"></script>
+    <script src="funciones/jquery.js"></script>
+    <script src="funciones/funciones.js"></script>
+    <script src="funciones/FPrestamos.js"></script>
+    <link id="linkFavicon" rel="icon" type="image/x-icon">
+    <title>Préstamos</title>
+</head>
+<body onload="createMenu()">
+    <!-- Formulario para prestar productos-->    
+    <div id="navBar">
+        <img id="imgLogo" alt="">
+        <div id="menu-container"></div>  
+      </div>
+    <div id="contenedorCamara">
+        <div id="overlayCamara" class="fullScreenOverlay">
+          <div id="qr-reader"></div>
+              <button id="pararCamara" onclick="stopButton()">Parar cámara</button>
+          </div>
+          <button id="mostrarEscaner" onclick="startButton()">Usar cámara</button>
+      </div>
+    <div class="columnas">
+        <div class="columnaIzquierda" onload="crearForm()">
+
+        </div>
+        <div class="columnaDerecha">
+        </div>
+    </div>
+    
+</body>
+</html>

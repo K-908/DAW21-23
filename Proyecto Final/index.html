@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página principal</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/index.css">
+    <script src="funciones/jquery.js"></script>
+    <script src="funciones/funciones.js"></script>
+    <script src="funciones/FIndex.js"></script>
+    <link id="linkFavicon" rel="icon" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/2a4e3b0292.js" crossorigin="anonymous"></script>
+</head>
+<body onload="createMenu()">
+    <div id="navBar">
+      <img id="imgLogo" alt="">
+      <div id="menu-container"></div>  
+    </div>
+    <div class="subBody">
+      <div id="deshabilitados">
+        <label for="check">Mostrar productos deshabilitados</label>
+        <input
+          type="checkbox"
+          name="check"
+          id="checkbox"
+          onclick="crearTablaProd()"
+          />
+      </div>
+      <div class="selectCategoria">
+        <label for="">Filtrar por categoría</label>
+        <select id="selectCategoria" name="selectCategoria" onchange="crearTablaProd()">
+          <option value=""></option>
+        </select>
+      </div>
+      <button id="botonDescargarCSV" onclick="descargarCSV()">Descargar</button>
+      </div>
+      <div id="contenedorTabla"></div>
+      <div id="contenedorBotonesIndex">
+        <div id="contenedorBotones">
+          <div id="textoBotones">Página x de y</div>
+          <i id="botonPrimera" class="fa-solid fa-angles-left botonPaginas" onclick="primeraPagina()"></i>
+          <i id="botonAnterior" class="fa-solid fa-chevron-left botonPaginas" onclick="anteriorPagina()"></i>
+          <i id="botonSiguiente" class="fa-solid fa-chevron-right botonPaginas" onclick="siguientePagina()"></i>
+          <i id="botonUltima" class="fa-solid fa-angles-right botonPaginas" onclick="ultimaPagina()"></i>
+        </div>
+      </div>
+</body>
+</html>

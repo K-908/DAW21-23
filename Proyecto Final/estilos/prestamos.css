@@ -1,0 +1,146 @@
+.columnas{
+    margin:auto;
+    display:flex;
+    justify-content: space-around;
+    flex-direction:row;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    background-color:inherit;
+}
+
+.columnaIzquierda, .columnaDerecha{
+    margin-top:50px;
+    padding-left:5%;
+    padding-right:5%;
+    flex-shrink: 0;
+    flex-grow:0;
+    color: black;
+}
+
+.fila{
+    background-color:white;
+    font-size:15px;
+}
+
+.columnaIzquierda{
+    top:0;
+    width:30%;
+}
+
+.columnaDerecha{
+    background-color:inherit;
+    flex-shrink:1;
+    flex-grow:1;
+}
+
+#divFormularioPrestamos{
+    display:block;
+    margin:auto;
+}
+
+#formularioPrestamos{
+    position:sticky;
+    top:0;
+    padding:25px;
+    border-radius:30px;
+    background-color:white;
+    padding-bottom:50px;
+}
+
+#divFormularioPrestamos input, #divFormularioPrestamos select{
+    width:100%;
+    margin-top:5px;
+    margin-bottom:10px;
+    border:1px solid #248CF3;
+    border-radius: 10px;
+    height:25px;
+}
+
+
+#listaCheckout, #tablaLista{
+    width:100%;
+    text-align:left;
+    font-size:12px;
+}
+
+#cabeceraListaProductos{
+    position:sticky;
+    top:0;
+    font-size:14px;
+}
+
+#divBotonReserva{
+    position:sticky;
+    top:0;
+    height:25px;
+    width:100%;
+    background-color:inherit;
+}
+
+
+#cabeceraCheckoutList{
+    position:sticky;
+    top:25px;
+    font-size:14px;
+}
+
+#listaCheckout tr:nth-child(even), #tablaLista tr:nth-child(even){
+    background-color:#CBD5E1;
+}
+
+#tablaLista tr{
+    overflow:hidden;
+}
+
+th{
+    width: 80px;
+}
+
+#divLista{
+    overflow:scroll;
+    height:400px;
+}
+
+#divLista::-webkit-scrollbar, #divListaCheckout::-webkit-scrollbar {
+    display: none;
+}
+
+#divLista, #divListaCheckout {
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#divListaCheckout{
+    overflow:scroll;
+    background-color:inherit;
+    height:760px;
+}
+
+button{
+    color: white;
+    font-size: 12px;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: 21px;
+    word-wrap: break-word;
+    background-color: #07319C;
+}
+
+button:disabled{
+    background-color:gray;
+}
+
+.botonBorrar{
+    background-color:#9C0707;
+}
+
+td{
+    white-space: nowrap; /* Prevent content from wrapping to the next line */
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Display an ellipsis (...) for overflowed content */
+}
+
+.codigoObjeto{
+    max-width:10px;
+}

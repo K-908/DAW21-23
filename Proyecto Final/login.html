@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="estilos/bootstrap.css">
+    <link rel="stylesheet" href="estilos/login.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="funciones/jquery.js"></script>
+    <script src="https://kit.fontawesome.com/99fbbf367d.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+</head>
+<body id="bodyLogin" onload="colorFondo()">
+  <div id="contenedorLogo">
+    <img class="logo" alt="logo" src="logoq_color@4x.png">
+  </div>
+  
+  <div id="contenedorForm">
+    <form id="formularioLogin">
+      <p>Bienvenido al Inventario</p>
+      <h2>Iniciar sesión</h2>
+      <table>
+        <tr>
+          <td><label>Nombre</label></td>
+        </tr>
+        <tr>
+          <td><input type="text" id="formuser" name="correo" class="inputText" placeholder="email" required/></td>
+        </tr>
+        <tr>
+          <td><label>Contraseña</label></td>
+        </tr>
+        <tr>
+          <td><input type="password" id="formpass" name="clave" class="inputText" placeholder="contraseña" required /><i id="ojo" class="fa-regular fa-eye" onclick="mostrarClave()"></i></td>
+        </tr>
+      </table>
+      <a href="cambioContrasena.html">Cambiar contraseña</a>
+    </form>
+      <button id="botonIniciarSesion" onclick="enviarFormulario()">Iniciar sesión</button>
+  </div>
+  <script>
+    function mostrarClave(){
+      var input = document.getElementById("formpass");
+      var ojo = document.getElementById("ojo");
+      if(input.type == "password"){
+        input.type = 'text';    
+        ojo.removeAttribute("class");
+        ojo.setAttribute("class", "fa-regular fa-eye-slash");
+      } else{
+        input.type = "password";
+        ojo.removeAttribute("class");
+        ojo.setAttribute("class", "fa-regular fa-eye");
+      }
+
+    }
+    
+    /*function colorFondo(){
+      if(localStorage.getItem("logo")){
+        document.querySelector("#imgLogo").setAttribute("src", localStorage.getItem("logo"));
+      } else{
+        document.querySelector("#imgLogo").remove();
+      }
+
+      if(localStorage.getItem("color")){
+        document.body.style.backgroundColor = localStorage.getItem("color");
+        }
+      }*/
+
+    if(!localStorage.getItem("usuario") === null){
+      location.href ='index.html';
+    }
+    
+    var divPrueba = document.getElementById("prueba");
+    $("input").on("keydown", function(event){
+    if(event.key == "Enter"){
+      enviarFormulario();
+    }
+    })
+    function enviarFormulario(){ 
+      var pass = sha256(document.getElementById("formpass").value);
+      $.ajax({
+        method: "POST",
+        url: "funciones/FLogin.php",
+        data: {user: $("#formuser").val(), password : pass}
+    })
+    .done(function(response){
+      
+      var datos = response.split(";")
+      console.log(datos);
+      if(datos[0]!="Error"){
+        localStorage.setItem("usuario", datos[0]);
+        localStorage.setItem("rol", datos[1]);
+        location.href = "intermedio.html";
+      } else{
+        $("#prueba").html("Credenciales erróneas o cuenta dehabilitada");
+      }
+    });
+    }
+    
+
+    function sha256(message){
+    const hash = CryptoJS.SHA256(message);
+    return hash.toString(CryptoJS.enc.Hex);
+    }
+  </script>
+  
+</body>
+</html>

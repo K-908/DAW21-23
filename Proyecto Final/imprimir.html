@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imprimir</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/imprimir.css">
+    <script src="funciones/jquery.js"></script>
+    <script src="funciones/funciones.js"></script>
+    <script src="funciones/FImprimir.js"></script>
+</head>
+<body onload="mostrarImagen()" style="color:black">
+    <div id="divDeArriba">
+        <img id="imgLogoImprimir" height="150px" width="250px"> 
+        <div id="datosPrestamoContainer">
+            <table id="listaDatosPrestamo">
+                <tr id="cabeceraTablaDetallesPedido">
+                    <th>Prestamista</th>
+                    <th>Usuario</th>
+                    <th>Fecha de préstamo</th>
+                    <th>Fecha de devolución</th>
+                    <th>Evento</th>
+                </tr>
+                <tr id="filaConDatos">
+
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="tablaContainerProductosImprimir">
+        <table id="tablaProductosImprimir">
+            <tr id="cabeceraTablaProductosImprimir">
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Comentarios</th>
+                <th>Número de serie</th>
+            </tr>
+        </table>
+    </div>
+    <div id="imagen"></div>
+    <div class="firmas">
+        <div class="areaFirma">
+            <p>Entregado</p>
+            <div id="cuadroFirma"></div>
+        </div>
+        <div class="areaFirma">
+            <p>Recibido</p>
+            <div id="cuadroFirma"></div>
+        </div>
+    </div>
+    <button onclick="imprimir()" id="botonImprimir">Imprimir</button>
+</body>
+</html>

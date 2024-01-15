@@ -1,0 +1,72 @@
+#bodyLogin{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #969696;
+}
+
+#contenedorLogo{
+    order: 1;
+	align-self: flex-start;
+    margin: 10px;
+	margin-bottom: 80px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.logo{
+	width: 150px;
+	height: auto;
+}
+
+#contenedorForm{
+	order: 2;
+	width: 400px;
+	height: 500px;
+	background-color: white;
+	border-radius: 30px;
+	color: black;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow: 0px 0px 20px rgb(122, 121, 121);
+}
+
+#contenedorForm p{
+	padding-top: 40px;
+}
+
+#contenedorForm a{
+	font-size: 14px;
+	color: #9c0707;
+	text-align: right;
+}
+
+#formularioLogin input{
+	border: 1px solid #969696;
+	border-radius: 10px;
+	height: 40px;
+	width: 350px;
+}
+
+#formularioLogin input:focus{
+	outline-color: #248CF3;
+	font-weight: normal;
+}
+
+#formularioLogin input::placeholder{
+	padding-left: 10px;
+	font-size: 14px;
+}
+
+#botonIniciarSesion{
+	border: none;
+	background-color: #9c0707;
+	width: 350px;
+	height: 40px;
+	border-radius: 10px;
+	color: white;
+	font-size: 15px;
+	margin-top: 30px;
+}
